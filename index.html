@@ -1,29 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <link rel="stylesheet" href="./styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Report</title>
-
+  <title>Weather Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class = "bodyy">
-  <div class="app-wrap">
-    <header>
-      <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
-    </header>
-    <main>
-      <section class="location">
-        <div class="city">Mumbai, India</div>
-        <div class="date">Thursday 22 June 2024</div>
-      </section>
-      <div class="current">
-        <div class="temp">39<span>°c</span></div>
-        <div class="weather">Sunny</div>
-        <div class="hi-low">45°c / 24°c</div>
+
+<body>
+  <div class="dynamic-bg"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="container">
+    <div class="header">
+      <h1 class="app-title">Weather Pro</h1>
+      <p class="app-subtitle">Real-time weather insights</p>
+    </div>
+
+    <div class="search-container">
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Search for any city..." autocomplete="off">
+        <button class="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
       </div>
-    </main>
+    </div>
+
+    <div class="unit-toggle">
+      <button class="toggle-btn active" data-unit="metric">°C</button>
+      <button class="toggle-btn" data-unit="imperial">°F</button>
+    </div>
+
+    <div class="error-message">
+      <p><i class="fas fa-exclamation-triangle"></i> Unable to find weather data for this location. Please try again.
+      </p>
+    </div>
+
+    <div class="weather-grid fade-in">
+      <div class="main-card">
+        <span class="weather-icon"><i class="fas fa-sun"></i></span>
+        <div class="location-info">
+          <div class="city-name">Mumbai, India</div>
+          <div class="date-time">Thursday, 22 June 2024</div>
+        </div>
+        <div class="main-temp">39°C</div>
+        <div class="weather-desc">Sunny</div>
+      </div>
+    </div>
+
+    <div class="info-cards fade-in">
+      <div class="info-card">
+        <div class="card-icon"><i class="fas fa-temperature-high"></i></div>
+        <div class="card-title">Feels Like</div>
+        <div class="card-value feels-like">42°C</div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon"><i class="fas fa-tint"></i></div>
+        <div class="card-title">Humidity</div>
+        <div class="card-value humidity">65%</div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon"><i class="fas fa-wind"></i></div>
+        <div class="card-title">Wind Speed</div>
+        <div class="card-value wind-speed">12 km/h</div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon"><i class="fas fa-eye"></i></div>
+        <div class="card-title">Visibility</div>
+        <div class="card-value visibility">10 km</div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+        <div class="card-title">Pressure</div>
+        <div class="card-value pressure">1013 hPa</div>
+      </div>
+
+    </div>
+
+    <div class="forecast-section fade-in">
+      <h2 class="forecast-title">5-Day Forecast</h2>
+      <div class="forecast-cards">
+        <div class="forecast-card">
+          <div class="forecast-day">Today</div>
+          <div class="forecast-icon"><i class="fas fa-sun"></i></div>
+          <div class="forecast-temp">39°/28°</div>
+        </div>
+        <div class="forecast-card">
+          <div class="forecast-day">Tomorrow</div>
+          <div class="forecast-icon"><i class="fas fa-cloud"></i></div>
+          <div class="forecast-temp">35°/26°</div>
+        </div>
+        <div class="forecast-card">
+          <div class="forecast-day">Saturday</div>
+          <div class="forecast-icon"><i class="fas fa-cloud-rain"></i></div>
+          <div class="forecast-temp">30°/24°</div>
+        </div>
+        <div class="forecast-card">
+          <div class="forecast-day">Sunday</div>
+          <div class="forecast-icon"><i class="fas fa-bolt"></i></div>
+          <div class="forecast-temp">28°/22°</div>
+        </div>
+        <div class="forecast-card">
+          <div class="forecast-day">Monday</div>
+          <div class="forecast-icon"><i class="fas fa-cloud"></i></div>
+          <div class="forecast-temp">32°/25°</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <script src="./script.js"></script>
+
+  <div class="loading-screen">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading weather data...</p>
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
