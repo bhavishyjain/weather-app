@@ -92,19 +92,6 @@ _Coming soon to make your weather experience even better:_
 
 ---
 
-```
-weather-app/
-│
-├── index.html          # Main application interface
-├── style.css           # Beautiful styling and animations
-├── script.js           # Weather logic and API integration
-├── README.md           # This documentation
-└── assets/             # Icons and images
-    └── screenshot.png  # App preview image
-```
-
----
-
 ## 🤝 **Contributing**
 
 Love weather and code? Join the meteorological revolution!
